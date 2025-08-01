@@ -25,7 +25,7 @@ def collector_with_books(collector):
 
 
 @pytest.fixture
-def collector_with_books_and_genre(collector):
+def collector_with_books_and_genre(collector_with_books):
     books = {'Гарри Поттер': 'Фантастика',
              'Шерлок Холмс': 'Детективы',
              'Винни Пух': 'Мультфильмы',
@@ -33,6 +33,5 @@ def collector_with_books_and_genre(collector):
              'Гордость и предубеждение и зомби': 'Комедии'
              }
     for book, genre in books.items():
-        collector.add_new_book(book)
-        collector.set_book_genre(book, genre)
-    return collector
+        collector_with_books.set_book_genre(book, genre)
+    return collector_with_books
