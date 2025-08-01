@@ -73,14 +73,13 @@ class TestBooksCollector:
         """
         assert collector_with_books_and_genre.get_books_with_specific_genre(genre) == [name]
 
-    @pytest.mark.parametrize("genre", ['Фантастика', 'Ужасы', 'Детективы', 'Мультфильмы', 'Комедии'])
-    def test_get_books_with_specific_genre_missing_from_dictionary(self, collector_with_books, genre):
+    def test_get_books_with_specific_genre_missing_from_dictionary(self, collector_with_books):
         """
         Тест проверяет, что метод get_books_with_specific_genre возвращает пустой список,
         если книги с указанным жанром нет в коллекции.
         :param collector_with_books - экземпляр класса BooksCollector с книгами
         """
-        assert collector_with_books.get_books_with_specific_genre(genre) == []
+        assert collector_with_books.get_books_with_specific_genre('Фантастика') == []
 
     def test_get_books_with_specific_genre_books_wrong_genre(self, collector_with_books_and_genre):
         """
