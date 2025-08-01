@@ -3,7 +3,7 @@ from main import BooksCollector
 
 
 @pytest.fixture
-def collector(self):
+def collector():
     """
     Создает экземпляр класса BooksCollector
     :return: BooksCollector() - экземпляр класса
@@ -12,8 +12,7 @@ def collector(self):
 
 
 @pytest.fixture
-def collector_with_books(self):
-    collector = BooksCollector()
+def collector_with_books(collector):
     books = ['Гарри Поттер',
              'Шерлок Холмс',
              'Винни Пух',
@@ -26,8 +25,7 @@ def collector_with_books(self):
 
 
 @pytest.fixture
-def collector_with_books_and_genre(self):
-    collector = BooksCollector()
+def collector_with_books_and_genre(collector):
     books = {'Гарри Поттер': 'Фантастика',
              'Шерлок Холмс': 'Детективы',
              'Винни Пух': 'Мультфильмы',
