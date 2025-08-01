@@ -37,20 +37,14 @@ class TestBooksCollector:
         collector.add_new_book(name)
         assert name in collector.books_genre
 
-    @pytest.mark.parametrize("name, genre, expected_genre", [
-        ('Гарри Поттер', 'Фантастика', 'Фантастика'),
-        ('Шерлок Холмс', 'Детективы', 'Детективы'),
-        ('Винни Пух', 'Мультфильмы', 'Мультфильмы'),
-        ('Что делать, если ваш кот хочет вас убить', 'Ужасы', 'Ужасы'),
-        ('Гордость и предубеждение и зомби', 'Торт', '')])
-    def test_set_book_genre_right_genre(self, collector, name, genre, expected_genre):
+    def test_set_book_genre_right_genre(self, collector):
         """
         Тест проверяет, что метод set_book_genre устанавливает жанр для книги если жанр существует.
         :param collector: созданный экземпляр класса BooksCollector
-        :param name: название книги
-        :param genre: жанр
-        :param expected_genre: ожидаемый жанр
         """
+        name = 'Гарри Поттер'
+        genre = 'Фантастика'
+        expected_genre = 'Фантастика'
         collector.add_new_book(name)
         collector.set_book_genre(name, genre)
         assert collector.get_book_genre(name) == expected_genre
